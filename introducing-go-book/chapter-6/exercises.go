@@ -62,9 +62,9 @@ func main() {
 
   a := 1
   b := 2
-  fmt.Println(a)
-  fmt.Println(b)
+  fmt.Println("a before swap: ", a)
+  fmt.Println("b before swap: ", b)
   swap(&a, &b)
-  fmt.Println(a)
-  fmt.Println(b)
+  fmt.Println("a after swap: ", a)
+  fmt.Println("b after swap: ", b)
 }
