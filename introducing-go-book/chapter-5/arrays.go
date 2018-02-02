@@ -25,4 +25,7 @@ func main() {
     total += value
   }
   fmt.Println(total/float64(len(y)))
+
+  z := [5]float64{98, 93, 77, 82, 83}
+  fmt.Println(z)
 }

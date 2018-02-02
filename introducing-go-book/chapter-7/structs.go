@@ -36,6 +36,11 @@ func (r *Rectangle) area() float64 {
   return l * w
 }
 
+// Random
+type ArrayedStruct struct {
+  i [6]int
+}
+
 func main() {
   var c1 Circle
   fmt.Println("Circle c1: ", c1)
@@ -54,6 +59,8 @@ func main() {
   c5 := &Circle{0, 0, 15}
   fmt.Println("Circle c5: ", c5)
 
+  fmt.Println("=================")
+
   fmt.Println(c1.x, c1.y, c1.r)
   c1.x = 1
   c1.y = 2
@@ -68,4 +75,16 @@ func main() {
 
   r1 := Rectangle{0, 0, 10, 10}
   fmt.Println("Rectangle area of r1: ", r1.area())
+
+  fmt.Println("=================")
+
+  // Arrayed Struct
+  as1 := new(ArrayedStruct)
+  as1.i = [6]int{1, 2, 3, 4, 5, 6}
+  fmt.Println(as1)
+
+  as2 := ArrayedStruct{
+    i: [6]int{1, 2, 3, 4, 5, 6},
+  }
+  fmt.Println(as2)
 }

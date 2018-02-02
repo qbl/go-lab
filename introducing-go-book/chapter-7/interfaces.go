@@ -4,6 +4,7 @@ import ("fmt"; "math")
 
 type Shape interface {
   area() float64
+  perimeter() float64
 }
 
 // Circle
@@ -13,6 +14,10 @@ type Circle struct {
 
 func (c *Circle) area() float64 {
   return math.Pi * c.r * c.r
+}
+
+func (c *Circle) perimeter() float64 {
+  return math.Pi * 2 * c.r
 }
 
 // Rectangle
@@ -34,6 +39,13 @@ func (r *Rectangle) area() float64 {
   return l * w
 }
 
+func (r * Rectangle) perimeter() float64 {
+  l := distance(r.x1, r.y1, r.x1, r.y2)
+  w := distance(r.x1, r.y1, r.x2, r.y1)  
+
+  return 2 * (l + w)
+}
+
 // Total Area
 func totalArea(shapes ...Shape) float64 {
   var area float64
@@ -44,7 +56,7 @@ func totalArea(shapes ...Shape) float64 {
   return area
 }
 
-// Multishapes
+// MultiShape
 type MultiShape struct {
   shapes []Shape
 }
@@ -62,6 +74,8 @@ func main() {
   c := Circle{0, 0, 14}
   r := Rectangle{0, 0, 10, 10}
   fmt.Println(totalArea(&c, &r))
+  fmt.Println("Perimeter of c:", c.perimeter())
+  fmt.Println("Perimeter of r:", r.perimeter())
 
   m := MultiShape{
     shapes: []Shape{
